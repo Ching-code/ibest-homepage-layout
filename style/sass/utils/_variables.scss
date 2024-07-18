@@ -1,0 +1,70 @@
+// Basic Colors
+$color-black: #000;
+$color-near-black: #111;
+$color-dark-gray: #444;
+$color-mid-dark-gray: #666;
+$color-medium-gray: #888;
+$color-mid-light-gray: #999;
+$color-light-gray: #ccc;
+$color-lighter-gray: #eee;
+$color-white: #fff;
+
+// Grays
+$gray-232323: #232323;
+$gray-2f2f2f: #2f2f2f;
+$gray-373737: #373737;
+$gray-3b3b3b: #3b3b3b;
+$gray-414141: #414141;
+$gray-5f5f5f: #5f5f5f;
+$gray-70706e: #70706e;
+$gray-737373: #737373;
+$gray-858383: #858383;
+$gray-919191: #919191;
+$gray-9a9a9a: #9a9a9a;
+$gray-a9a9a9: #a9a9a9;
+$gray-b5b5b5: #b5b5b5;
+$gray-c0c0c0: #c0c0c0;
+$gray-c4c4c4: #c4c4c4;
+$gray-c5c5c5: #c5c5c5;
+$gray-cbcbcb: #cbcbcb;
+$gray-d5d5d5: #d5d5d5;
+$gray-d9d9d9: #d9d9d9;
+$gray-dbdbdb: #dbdbdb;
+$gray-e1e1e1: #e1e1e1;
+$gray-e5e5e5: #e5e5e5;
+$gray-e8e8e8: #e8e8e8;
+$gray-f1f1f1: #f1f1f1;
+$gray-f3f3f3: #f3f3f3;
+
+// Reds
+$red-dc4349: #dc4349;
+$red-a41f24: #a41f24;
+$red-b21d26: #b21d26;
+$red-b92329: #b92329;
+$red-c40000: #c40000;
+$red-c80303: #c80303;
+$red-d12127: #d12127;
+$red-pure: #f00;
+$red-f05b8f: #f05b8f;
+
+// Green
+$green-9cc720: #9cc720;
+
+// Box-Shadows
+
+// Inset Shadows
+$box-shadow-inset-light: inset 0 0 3px rgba(0, 0, 0, 0.15);
+$box-shadow-inset-dark: inset 0 3px 3px #8d2121;
+
+// Light Shadows
+$box-shadow-light: 0 0 10px rgba(0, 0, 0, 0.1);
+$box-shadow-light-small: 0 1px 1px #8d2121;
+$box-shadow-light-offset: 1px 0 #f38a8a;
+
+// Medium Shadows
+$box-shadow-medium: 0 2px 5px rgba(126, 126, 126, 0.68);
+$box-shadow-medium-up: 0 -2px 6px rgba(0, 0, 0, 0.1);
+
+// Dark Shadows
+$box-shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.1);
+$box-shadow-dark-small: 2px 2px 5px #c3c3c3;

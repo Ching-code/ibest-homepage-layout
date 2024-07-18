@@ -1,0 +1,354 @@
+.slideMenuArea {
+  width: calc(100% - 122px);
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  background: url(https://www.chunshuitang.com.tw/images/texture_bg_gray.png);
+  position: fixed;
+  top: 0;
+  left: 122px;
+  z-index: 99;
+  transform: translateX(-3%);
+  transition: all 0.65s ease-in-out;
+  @include max-1200 {
+    width: 100%;
+    left: 0;
+  }
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+    .bgImg {
+      &.bg1 {
+        opacity: 1;
+        animation: shadowMove2 12s infinite ease;
+      }
+      &.bg2 {
+        opacity: 1;
+        animation: slideRightBlurAnimation 1.05s 0.45s ease-in-out both;
+      }
+    }
+    .decoImg {
+      animation: slideRightBlurAnimation 1.05s 1.25s ease-in-out both;
+    }
+    .menuBox {
+      .nav {
+        &:before {
+          width: 96.5%;
+          opacity: 1;
+          filter: blur(0);
+          transition: all 2.5s ease-in-out;
+          @include max-1200 {
+            width: 98%;
+          }
+        }
+        &>li {
+          &>span {
+            animation: slideRightBlurAnimation 1.05s 1.05s ease-in-out both;
+          }
+        }
+        .submenu {
+          animation: slideRightBlurAnimation 1.05s 1.05s ease-in-out both;
+        }
+      }
+    }
+    .languageBox {
+      animation: slideRightBlurAnimation 1.05s 1.25s ease-in-out both;
+    }
+    .socialBox {
+      animation: slideRightBlurAnimation 1.05s 1.25s ease-in-out both;
+    }
+    .btnBox {
+      animation: slideRightBlurAnimation 1.05s 1.65s ease-in-out both;
+    }
+  }
+
+  .bgImg {
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+    position: absolute;
+    &.bg1 {
+      opacity: 0;
+      top: -10%;
+      right: -10%;
+      z-index: 1;
+      transform-origin: right top;
+      transition: opacity 0.65s 0.45s ease-in-out;
+    }
+    &.bg2 {
+      opacity: 0;
+      bottom: -8.3%;
+      left: -7.1%;
+      z-index: 1;
+      will-change: transform, filter, opacity;
+    }
+  }
+
+  .decoImg {
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+    will-change: transform, filter, opacity;
+    @include max-1280 {
+      opacity: 0.2 !important;
+    }
+    &.deco1 {
+      bottom: -6%;
+      left: 7.7%;
+      z-index: 2;
+      @include max-1200 {
+        left: auto;
+        bottom: -15%;
+        right: 0;
+      }
+      @include max-768 {
+        width: 300px;
+        bottom: -10%;
+        right: -10%;
+      }
+    }
+  }
+
+  .wrap {
+    max-width: 1440px;
+    height: 100vh;
+    overflow-y: auto;
+    padding-left: 40px;
+    padding-bottom: env(safe-area-inset-bottom);
+    position: relative;
+    z-index: 3;
+    // scrollbar-width: thin;
+    // scrollbar-color: $red-a41f24 $color-white;
+    @include max-1200 {
+      padding-top: 120px;
+      padding-left: 20px;
+    }
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: $color-white;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $red-a41f24;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: $color-white;
+    }
+  }
+
+  .menuBox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    @include max-1200 {
+      justify-content: flex-start;
+    }
+
+    .nav {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding-bottom: 14%;
+      position: relative;
+      &:before {
+        content: '';
+        width: 0;
+        height: 1px;
+        background-color: $gray-c0c0c0;
+        filter: blur(3px);
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 57px;
+        left: 0;
+        z-index: 1;
+        transition: all 0.5s ease-in-out;
+        @include max-1200 {
+          display: none;
+        }
+      }
+      @include max-1200 {
+        display: block;
+        padding-bottom: 5%;
+      }
+      &>li {
+        flex: 1;
+        padding: 0 4px;
+        position: relative;
+        &.open {
+          .submenu {
+            animation: slideDownAnimation 0.4s 0.3s ease-in-out both;
+          }
+          &>span {
+            &:after {
+              transform: translate(-50%, 0) rotate(0);
+            }
+          }
+        }
+        &>span {
+          display: block;
+        }
+        .mainTitle {
+          color: $gray-3b3b3b;
+          display: block;
+          font-size: 19px;
+          font-weight: 500;
+          line-height: 1;
+          letter-spacing: 0.5px;
+          padding: 10px 0 30px;
+          position: relative;
+          @include max-1200 {
+            padding: 15px 0;
+          }
+          &:after,
+          &:before {
+            content: '';
+            width: 12px;
+            height: 1px;
+            background-color: $red-a41f24;
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            transform: translate(-50%, 0);
+            z-index: 1;
+            transition: all 0.65s ease-in-out;
+            @include max-1200 {
+              display: block;
+            }
+          }
+          &:after {
+            transform: translate(-50%, 0) rotate(90deg);
+          }
+        }
+      }
+
+      .submenu {
+        overflow: hidden;
+        width: 100%;
+        margin-top: 20px;
+        transition: all 0.65s ease-in-out;
+        @include min-1201 {
+          display: block;
+        }
+        @include max-1200 {
+          display: none;
+          height: 0;
+          overflow: hidden;
+          margin-top: 0;
+          margin-bottom: 15px;
+          padding-left: 10px;
+        }
+        li {
+          padding: 2px 0;
+          a {
+            color: $gray-3b3b3b;
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: -0.25px;
+            padding: 6px 0;
+            position: relative;
+            word-break: break-all;
+            &:hover {
+              @include min-1201 {
+                color: $red-a41f24;
+              }
+            }
+          }
+        }
+        &.show {
+          display: block;
+          height: 100%;
+        }
+      }
+    }
+
+    .languageBox {
+      display: flex;
+      align-items: center;
+      align-self: flex-start;
+      padding-bottom: 15px;
+      padding-left: 4px;
+      position: relative;
+      @include min-1201 {
+        display: none;
+      }
+      .languageCurrent {
+        margin-top: 5px;
+        img {
+          max-width: 100%;
+          filter: brightness(0.5) grayscale(1);
+          transition: all 0.65s ease-in-out;
+        }
+      }
+      .languageList {
+        width: auto;
+        display: flex;
+        align-items: center;
+        li {
+          position: relative;
+          a {
+            color: $gray-3b3b3b;
+            display: block;
+            font-size: 14px;
+            line-height: 1;
+            letter-spacing: 0.5px;
+            padding: 5px 10px;
+            text-align: center;
+            &:hover {
+              @include min-1201 {
+                color: $red-a41f24;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .socialBox {
+      align-self: flex-start;
+      padding-bottom: 15px;
+      @include min-1201 {
+        display: none;
+      }
+      .socialList {
+        display: flex;
+        align-items: center;
+        margin: 0 -5px;
+        li {
+          margin: 5px;
+          a {
+            color: $gray-3b3b3b;
+            display: block;
+            font-size: 18px;
+            padding: 5px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .btnBox {
+      justify-content: flex-end;
+      width: 100%;
+      padding-right: 60px;
+      padding-bottom: 100px;
+      @include max-1200 {
+        justify-content: flex-start;
+        margin-top: auto;
+        padding-top: 15px;
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+

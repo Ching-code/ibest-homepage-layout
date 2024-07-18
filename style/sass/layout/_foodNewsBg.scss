@@ -1,0 +1,965 @@
+.foodNewsBg {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  background: url(https://www.chunshuitang.com.tw/images/texture_bg_gray.png);
+}
+
+.foodArea {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1);
+  visibility: visible;
+  transition: transform 0.6s ease-in-out 0s, opacity 0.6s ease-in-out 0s;
+  .wrap {
+    max-width: 1425px;
+    position: relative;
+    z-index: 3;
+  }
+  .titleBox {
+    flex-shrink: 0;
+    margin-top: 95px;
+    @include max-1024 {
+      margin-top: 0;
+    }
+  }
+
+  .foodBox {
+    max-width: calc(100% - 85px);
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+    opacity: 0;
+    @include max-1024 {
+      max-width: 100%;
+      flex: auto;
+      align-items: center;
+      margin-top: 20px;
+    }
+  }
+  &.drink {
+    padding: 165px 0 75px;
+    @include max-1200 {
+      padding: 60px 0;
+    }
+    @include max-768 {
+      padding-bottom: 50px;
+    }
+    .bgImg {
+      &.bg1 {
+        top: 0;
+        left: 0;
+      }
+      &.bg2 {
+        top: 0;
+        right: 0;
+        z-index: 2;
+      }
+    }
+    .decoImg {
+      &.deco1 {
+        top: 54.7%;
+        right: 0;
+        @include max-1024 {
+          max-width: 240px;
+          top: auto;
+          bottom: 0;
+        }
+      }
+    }
+
+    .wrap {
+      padding-right: 40px;
+      @include max-1440 {
+        padding-right: 20px;
+      }
+      @include max-1024 {
+        justify-content: center;
+      }
+    }
+
+    .foodBox {
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-left: 50px;
+      @include max-1200 {
+        padding-left: 30px;
+      }
+      @include max-1024 {
+        padding-left: 0;
+      }
+      @include max-768 {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .foodListBox {
+      &.main {
+        .bottomBox {
+          justify-content: flex-end;
+          padding-right: 15px;
+          @include max-768{
+            justify-content: center;
+          }
+          .controlBtnBox {
+            justify-content: flex-end;
+            @include max-768{
+              justify-content: center;
+            }
+          }
+          .decoImg {
+            @include max-768{
+              display: none;
+            }
+          }
+        }
+      }
+      &.side {
+        margin-top: 15px;
+        @include max-1024 {
+          margin-top: 0;
+        }
+        .foodItemBox {
+          padding-left: 30px;
+          @include max-1200 {
+            padding-left: 20px;
+          }
+          @include max-768 {
+            padding-left: 0;
+          }
+        }
+        .foodItem {
+          .Img {
+            max-width: 140px;
+            @include max-1200 {
+              max-width: 120px;
+            }
+            @include max-768 {
+              max-width: 150px;
+            }
+            @include max-640 {
+              max-width: 140px;
+            }
+          }
+        }
+        .titleBox {
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    &.show {
+      .foodBox {
+        animation: slideRightBlurAnimation 1.05s 0.25s ease-in-out both;
+      }
+    }
+  }
+
+  &.cuisine {
+    padding: 70px 0 208px;
+    @include max-1200 {
+      padding: 60px 0;
+    }
+    @include max-768 {
+      padding-bottom: 60px;
+    }
+
+    .bgImg {
+      &.bg1 {
+        top: -22px;
+        left: -8px;
+      }
+      &.bg2 {
+        top: 30px;
+        right: 0;
+        z-index: 2;
+        @include max-768 {
+          top: auto;
+          bottom: 0;
+        }
+      }
+    }
+    .decoImg {
+      &.deco1 {
+        top: 63.6%;
+        left: 8%;
+        @include max-1024 {
+          max-width: 200px;
+          top: auto;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
+
+    .wrap {
+      max-width: 1455px;
+      margin-left: 0;
+      padding-right: 0;
+      padding-left: 100px;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      @include max-1440 {
+        max-width: 1425px;
+        padding-right: 20px;
+        padding-left: 40px;
+      }
+      @include max-1024 {
+        justify-content: center;
+        padding-left: 20px;
+      }
+    }
+
+    .foodBox {
+      flex-direction: row-reverse;
+      padding-right: 50px;
+      @include max-1200 {
+        padding-right: 30px;
+      }
+      @include max-1024 {
+        padding-right: 0;
+      }
+      @include max-768 {
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    .foodListBox {
+      &.main {
+        .bottomBox {
+          padding-left: 12px;
+          @include max-768 {
+            justify-content: center;
+          }
+        }
+      }
+      &.side {
+        margin-top: 10px;
+        @include max-1024 {
+          margin-top: 0;
+        }
+        
+        .foodList {
+          flex-direction: row-reverse;
+          @include max-768 {
+            flex-direction: row;
+          }
+          @include max-640 {
+            flex-direction: column;
+          }
+        }
+
+        .foodItemBox {
+          padding-right: 30px;
+          @include max-1200 {
+            padding-right: 20px;
+          }
+          @include max-768 {
+            padding-right: 0;
+          }
+        }
+
+        .foodItem {
+          .Img {
+            max-width: 210px;
+            @include max-1200 {
+              max-width: 120px;
+            }
+            @include max-768 {
+              max-width: 150px;
+            }
+            @include max-640 {
+              max-width: 210px;
+            }
+          }
+        }
+
+        .titleBox {
+          margin-bottom: 50px;
+        }
+      }
+    }
+
+    &.show {
+      .foodBox {
+        animation: slideLeftBlurAnimation 1.05s 0.25s ease-in-out both;
+      }
+    }
+  }
+
+
+  .foodListBox {
+    &.main {
+      width: 42.7%;
+      max-width: 525px;
+      margin-top: 90px;
+      @include max-1440 {
+        width: 45%;
+        max-width: initial;
+      }
+      @include max-1024 {
+        margin-top: 0;
+      }
+      @include max-768 {
+        width: 100%;
+        max-width: 640px;
+        margin-bottom: 40px;
+      }
+      .bottomBox {
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: 21px;
+        .controlBtnBox {
+          width: 100%;
+          display: flex;
+          position: relative;
+          margin-top: 5px;
+          @include max-768 {
+            justify-content: center;
+          }
+          button {
+            width: 35px;
+            height: 35px;
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            border-radius: 50%;
+            background-color: $gray-919191;
+            cursor: pointer;
+            overflow: hidden;
+            position: static;
+            margin: 5px;
+            transform: translate(0);
+            z-index: 2;
+            &:hover {
+              @include min-1201 {
+                background-color: $red-a41f24;
+              }
+            }
+            &:before {
+              content: '';
+              border-right: 2px solid $color-white;
+              border-bottom: 2px solid $color-white;
+              display: block;
+              opacity: 1;
+              pointer-events: none;
+              z-index: 2;
+              width: 8px;
+              height: 8px;
+              margin: auto;
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              transition: all 0.65s ease-in-out;
+            }
+            &.prev {
+              &:before {
+                transform: translateX(1px) rotate(135deg);
+              }
+            }
+            &.next {
+              &:before {
+                transform: translateX(-1px) rotate(-45deg);
+              }
+            }
+          }
+        }
+
+        .decoImg {
+          max-width: 100%;
+          margin-top: 13px;
+          position: static;
+          &+.btnBox {
+            width: 175px;
+            flex-shrink: 0;
+            margin-left: 30px;
+          }
+        }
+      }
+    }
+    &.side {
+      width: 48.8%;
+      max-width: 600px;
+      @include max-1440 {
+        width: 55%;
+        max-width: initial;
+      }
+      @include max-768 {
+        width: 100%;
+      }
+      .foodList {
+        display: flex;
+        @include max-640 {
+          flex-direction: column;
+        }
+      }
+
+      .foodItemBox {
+        width: 50%;
+        max-width: 300px;
+        @include max-768 {
+          width: 66.6%;
+          max-width: initial;
+          display: flex;
+        }
+        @include max-640 {
+          width: 100%;
+          flex-direction: column;
+        }
+        &+.foodItemBox {
+          @include max-768 {
+            width: 33.3%;
+            .foodItem {
+              width: 100%;
+            }
+          }
+          @include max-640 {
+            width: 100%;
+          }
+
+        }
+      }
+      .foodItem {
+        padding: 15px 0;
+        @include max-1024 {
+          padding: 5px 0;
+        }
+        @include max-768 {
+          width: 50%;
+          padding: 0 8px;
+        }
+        @include max-640 {
+          width: 100%;
+          padding: 15px 0;
+        }
+        .item {
+          background-color: $color-white;
+          padding: 14px 24px 17px;
+          @include max-1024 {
+            padding: 18px 16px;
+          }
+          @include max-768 {
+            margin: 0;
+          }
+        }
+        .topBox {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0 -5px;
+          @include max-768 {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 5px;
+          }
+          .titleEn {
+            color: $gray-919191;
+            font-size: 12px;
+            font-weight: 400;
+            font-family: "Libre Baskerville", "Noto Serif TC", "Microsoft JhengHei", serif;
+            line-height: 1.2;
+            letter-spacing: 0;
+            margin: 3px 5px;
+          }
+          .sequence {
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: 0;
+            margin: 3px 5px;
+            padding: 6px 0;
+            border-top: 1px solid $gray-d5d5d5;
+            border-bottom: 1px solid $gray-d5d5d5;
+          }
+        }
+
+        .Img {
+          overflow: hidden;
+          margin: 0 auto 5px;
+          img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        }
+
+        .Txt {
+          .feature {
+            height: 25px;
+            display: flex;
+            align-items: center;
+            color: $gray-3b3b3b;
+            font-size: 12px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            position: relative;
+            &:before {
+              content: '';
+              width: 5px;
+              height: 5px;
+              background-color: $red-a41f24;
+              display: block;
+              flex-shrink: 0;
+              margin-right: 8px;
+            }
+          }
+          .middleBox {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid $gray-d5d5d5;
+            border-bottom: 1px solid $gray-d5d5d5;
+            .title {
+              font-size: 18px;
+              font-weight: 400;
+              font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+              line-height: 1.2;
+              letter-spacing: 0.25px;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+              padding: 9px 0;
+              color: $gray-3b3b3b;
+              @include max-1200 {
+                line-height: 1.6;
+              }
+              a {
+                display: block;
+                overflow: hidden;
+              }
+            }
+            .size {
+              display: flex;
+              align-items: center;
+              font-size: 18px;
+              font-weight: 400;
+              font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+              line-height: 1.2;
+              letter-spacing: 2.5px;
+              padding: 9px 0;
+              color: $gray-3b3b3b;
+              @include max-1200 {
+                line-height: 1.6;
+              }
+              li {
+                &+li {
+                  margin-left: 10px;
+                  padding-left: 10px;
+                  border-left: 1px solid $gray-919191;
+                }
+              }
+            }
+          }
+          .text {
+            height: 48px;
+            font-size: 14px;
+            font-weight: 400;
+            font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+            overflow: hidden;
+            color: $gray-3b3b3b;
+            @include max-1200 {
+              line-height: 1.6;
+            }
+          }
+        }
+      }
+      .titleBox {
+        filter: blur(3px);
+        margin-top: 0;
+        transition-delay: 1.25s;
+        @include max-768 {
+          display: none;
+        }
+        &.show {
+          filter: blur(0);
+        }
+        .subtitle {
+          color: $gray-3b3b3b;
+          font-size: 22px;
+          font-weight: 700;
+          font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+          line-height: 1.5;
+          letter-spacing: 0.4px;
+          &.small {
+            font-size: 14px;
+            margin-bottom: 26px;
+          }
+        }
+      }
+    }
+    .foodList {
+      width: 100%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        transition: all 0.85s ease-in-out;
+        &:hover {
+          @include min-1201 {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+.newsArea {
+  padding-bottom: 375px;
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 0.6s ease-in-out 0s, opacity 0.6s ease-in-out 0s;
+  @include max-1200 {
+    padding-top: 60px;
+    padding-bottom: 220px;
+  }
+  @include max-1024 {
+    padding-bottom: 125px;
+  }
+
+  &.show {
+    .newsBox {
+      animation: slideRightBlurAnimation 1.05s 1.05s ease-in-out both;
+    }
+  }
+
+  .bgImg {
+    &.bg1 {
+      bottom: -45px;
+      left: -10px;
+    }
+  }
+  .decoImg {
+    &.deco1 {
+      bottom: -16.7%;
+      left: -2px;
+      @include max-1680 {
+        bottom: -28%;
+        left: -2.5%;
+      }
+      @include max-1440 {
+        bottom: -45%;
+      }
+      @include max-1200 {
+        max-width: 150px;
+        bottom: -8%;
+      }
+      @include max-1024 {
+        max-width: 120px;
+        bottom: -28%;
+        left: 0;
+      }
+      @include max-768 {
+        display: none;
+      }
+    }
+    &.deco2 {
+      bottom: 3.55%;
+      right: 17.4%;
+      @include max-1200 {
+        max-width: 180px;
+        right: 0;
+      }
+      @include max-1024 {
+        max-width: 140px;
+        bottom: 0;
+        right: 0;
+      }
+      @include max-768 {
+        max-width: 120px;
+      }
+      @include max-640 {
+        bottom: -16px;
+        right: -16px;
+      }
+    }
+  }
+
+  .wrap {
+    padding-right: 0;
+    position: relative;
+    z-index: 3;
+    @include max-1200 {
+      padding-right: 20px;
+    }
+    @include max-1024 {
+      justify-content: center;
+    }
+  }
+
+  .titleBox {
+    padding-top: 8px;
+  }
+  
+  .newsBox {
+    width: calc(100% - 85px);
+    flex: 1;
+    padding-left: 65px;
+    opacity: 0;
+    will-change: transform, filter, opacity;
+    @include max-1200 {
+      padding-left: 30px;
+    }
+    @include max-1024 {
+      width: 100%;
+      max-width: 100%;
+      flex: auto;
+      align-items: center;
+      margin-top: 20px;
+      padding-left: 0;
+    }
+  }
+
+  .newsList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &>.newsItem {
+
+      &:first-child {
+        width: 36.25%;
+        max-width: 525px;
+        display: flex;
+        align-items: flex-start;
+      }
+      &:nth-child(3) {
+        width: 37.88%;
+        max-width: 549px;
+        padding-left: 30px;
+        @include max-1200 {
+          padding-left: 20px;
+        }
+        @include max-768 {
+          margin-top: 24px;
+          padding-left: 0;
+        }
+      }
+      &:first-child,
+      &:nth-child(3) {
+        @include max-1200 {
+          width: 33.33%;
+          max-width: 33.33%;
+        }
+        @include max-768 {
+          width: 100%;
+          max-width: 625px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      @include max-768 {
+        padding: 0 10px;
+      }
+    }
+
+    .newsItemBox {
+      width: 25.87%;
+      max-width: 375px;
+      padding-left: 30px;
+      @include max-1200 {
+        width: 33.33%;
+        max-width: 33.33%;
+        padding-left: 20px;
+      }
+      @include max-768 {
+        width: 100%;
+        max-width: 625px;
+        margin: 24px auto 0;
+        padding-left: 0;
+      }
+      .newsItem {
+        &~.newsItem {
+          margin-top: 24px;
+        }
+      }
+    }
+
+    .Img {
+      position: relative;
+      a {
+        display: block;
+        overflow: hidden;
+      }
+      img {
+        transform: scale(1);
+        transition: all 0.85s ease-in-out;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      &:hover {
+        @include min-1201 {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .dateBox {
+        font-family: "Libre Baskerville", "Noto Serif TC", "Microsoft JhengHei", serif;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $color-white;
+        padding: 14px 9px;
+        position: absolute;
+        bottom: -45px;
+        right: 20px;
+        z-index: 2;
+        @include max-1280 {
+          padding: 12px 7px;
+          right: 12px;
+        }
+
+        .date {
+          &.y {
+            color: $gray-919191;
+            font-size: 12px;
+            line-height: 1;
+            @include max-1280 {
+              font-size: 13px;
+            }
+          }
+          &.m {
+            color: $gray-3b3b3b;
+          }
+          &.d {
+            font-size: 25px;
+            margin-top: 5px;
+            padding-top: 35px;
+            position: relative;
+            @include max-1280 {
+              font-size: 20px;
+              padding-top: 30px;
+            }
+            &:before {
+              content: '';
+              width: 1px;
+              height: calc(100% - 35px);
+              background-color: $red-a41f24;
+              pointer-events: none;
+              position: absolute;
+              top: 0;
+              left: 50%;
+              z-index: 1;
+              transform: translateX(-50%);
+              @include max-1280 {
+                height: calc(100% - 30px);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .Txt {
+      padding-top: 24px;
+      .classTitle {
+        display: flex;
+        align-items: center;
+        .field {
+          color: $gray-919191;
+          margin-right: 12px;
+          padding-right: 12px;
+          position: relative;
+          &:before {
+            content: '';
+            width: 1px;
+            height: 70%;
+            background-color: $gray-919191;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            z-index: 1;
+            transform: translateY(-50%);
+          }
+        }
+        .data {
+          color: $gray-919191;
+          font-weight: 400;
+        }
+      }
+      .title {
+        margin-top: 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: $gray-3b3b3b;
+        font-size: 20px;
+        font-weight: 400;
+        font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+        line-height: 1.3;
+        letter-spacing: 0.6px;
+        @include max-1200 {
+          font-size: 20px;
+        }
+        @include max-640 {
+          font-size: 18px;
+          line-height: 1.5;
+        }
+        a {
+          display: block;
+          color: $gray-3b3b3b;
+          &:hover {
+            @include min-1201 {
+              color: $red-a41f24;
+            }
+          }
+        }
+      }
+      .text {
+        height: 55px;
+        margin-top: 15px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        color: $gray-3b3b3b;
+        font-size: 14px;
+        font-weight: 400;
+        font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+        line-height: 1.9;
+        letter-spacing: 0.25px;
+        @include max-1200 {
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  .btnBox {
+    margin-top: 20px;
+    &.desktop {
+      @include max-768 {
+        display: none;
+      }
+    }
+    &.mobile {
+      @include min-769 {
+        display: none;
+      }
+    }
+  }
+}

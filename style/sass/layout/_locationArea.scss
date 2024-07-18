@@ -1,0 +1,567 @@
+.locationArea {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 0.6s ease-in-out 0s, opacity 0.6s ease-in-out 0s;
+
+  &.show {
+    .locationMainBox {
+      .globalMapBox {
+        animation: slideRightBlurAnimation 1.05s 0.25s ease-in-out both;
+      }
+      .classBox {
+        animation: slideRightBlurAnimation 1.05s 0.85s ease-in-out both;
+      }
+    }
+
+    .locationSecBox {
+      animation: slideRightBlurAnimation 1.05s 1.25s ease-in-out both;
+    }
+  }
+
+  .locationBox {
+    display: flex;
+    @include max-1024 {
+      flex-direction: column;
+    }
+  }
+
+  .locationMainBox {
+    width: 50%;
+    min-height: 972px;
+    background: url(https://www.chunshuitang.com.tw/images/home_webp/location_global_bg.webp) center / cover no-repeat;
+    display: flex;
+    padding: 142px 0 115px 11%;
+    position: relative;
+    @include max-1440 {
+      padding: 100px 0 100px 20px;
+    }
+    @include max-1200 {
+      min-height: 800px;
+      padding: 80px 20px 60px;
+    }
+    @include max-1024 {
+      width: 100%;
+      min-height: initial;
+      flex-direction: column;
+      padding: 50px 20px 20px;
+    }
+
+    .globalMapBox {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      will-change: transform, filter, opacity;
+      @include max-1024 {
+        display: none;
+      }
+
+      .globalMap {
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: cover;
+          transition: all 1.05s 0.25s ease-in-out;
+        }
+      }
+
+      .bubbleTeaList {
+        pointer-events: none;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        .bubbleTeaItem {
+          opacity: 0;
+          transform: translateY(-10px);
+          transition: all 0.65s ease-in-out;
+          &.current {
+            opacity: 1;
+            transform: translateY(0);
+            .Txt {
+              .title {
+                color: $gray-3b3b3b;
+              }
+            }
+          }
+          .Img {
+            overflow: hidden;
+            img {
+              max-width: 100%;
+              height: auto;
+              display: block;
+              transform: scale(1);
+              transition: all 1.05s 0.25s ease-in-out;
+            }
+          }
+          .Txt {
+            margin-top: 6px;
+            margin-left: 15px;
+            .title {
+              color: $gray-919191;
+              font-size: 12px;
+              font-family: "Libre Baskerville", "Noto Serif TC", "Microsoft JhengHei", serif;
+              line-height: 1;
+              letter-spacing: 0.25px;
+            }
+          }
+        }
+        .bubbleTeaItem1 {
+          position: absolute;
+          top: 36.8%;
+          left: 56%;
+          z-index: 1;
+        }
+      }
+    }
+
+    .titleBox {
+      height: 290px;
+      margin-top: 5px;
+      position: relative;
+      z-index: 2;
+      @include max-1200 {
+        margin-top: 0;
+      }
+      @include max-1024 {
+        height: auto;
+      }
+      &+.classBox {
+        padding-left: 65px;
+        @include max-1200 {
+          padding-left: 30px;
+        }
+        @include max-1024 {
+          padding-left: 0;
+        }
+      }
+    }
+
+    .classBox {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      will-change: transform, filter, opacity;
+      @include max-1024 {
+        width: 100%;
+        flex: auto;
+        flex-direction: column-reverse;
+      }
+
+      .classListBox {
+        padding-top: 16px;
+        .classList {
+          display: flex;
+          align-items: center;
+          .classTrigger {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: $gray-3b3b3b;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+            line-height: 2;
+            letter-spacing: 0.25px;
+            @include max-1200 {
+              line-height: 1.6;
+            }
+            &:not(:last-child) {
+              margin-right: 27px;
+            }
+            &:hover {
+              @include min-1201 {
+                &:after {
+                  background-color: $red-a41f24;
+                }
+              }
+            }
+            &:after {
+              content: attr(data-num);
+              width: 20px;
+              height: 20px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: $gray-d5d5d5;
+              border-radius: 50%;
+              color: $color-white;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 1;
+              letter-spacing: 0.5px;
+              margin-left: 12px;
+              pointer-events: none;
+              transition: all 0.65s ease-in-out;
+            }
+            &.current {
+              &:after {
+                background-color: $red-a41f24;
+              }
+            }
+          }
+        }
+      }
+      .btnBox {
+        justify-content: flex-start;
+        padding-top: 20px;
+        margin: auto 0 25px;
+        @include max-1024 {
+          margin-top: 0;
+          padding-top: 0;
+        }
+        .hTitle {
+          &+.hTitle {
+            margin-left: 35px;
+          }
+        }
+        .btn {
+          margin: 0;
+        }
+      }
+    }
+
+    .boxTitle {
+      display: flex;
+      align-items: center;
+      color: $gray-3b3b3b;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+      line-height: 1.2;
+      letter-spacing: 0.4px;
+      width: 100%;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+      @include max-1024 {
+        display: none;
+      }
+      &:after {
+        content: '';
+        width: 70%;
+        height: 1px;
+        position: absolute;
+        top: 10px;
+        left: 325px;
+        background-color: $gray-d9d9d9;
+        flex: 1;
+        margin-left: 15px;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .locationSecBox {
+    width: 50%;
+    min-height: 972px;
+    background: url(	https://www.chunshuitang.com.tw/images/home_webp/location_taiwan_bg.webp) center / cover no-repeat;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 135px 3.6% 115px 0;
+    opacity: 0;
+    will-change: transform, filter, opacity;
+    @include max-1440 {
+      padding: 100px 20px 100px 0;
+    }
+    @include max-1200 {
+      min-height: 800px;
+      padding: 80px 20px 60px;
+    }
+    @include max-1024 {
+      width: 100%;
+      min-height: initial;
+      background: url(https://www.chunshuitang.com.tw/images/home_webp/location_global_bg.webp) center / cover no-repeat;
+      padding: 20px;
+    }
+    @include max-640 {
+      padding-top: 0;
+    }
+    &.show {
+      opacity: 1;
+      .classListBox {
+        animation: slideRightBlurAnimation 1.05s 0.1s ease-in-out both;
+      }
+      .countryMapBox {
+        animation: slideRightBlurAnimation 1.05s 0.25s ease-in-out both;
+      }
+      .locationList {
+        animation: slideRightBlurAnimation 1.05s 0.5s ease-in-out both;
+      }
+    }
+
+    .classListBox {
+      width: 100px;
+      margin-top: 9px;
+      opacity: 0;
+      padding-top: 40px;
+      position: relative;
+      transition: all 0.65s ease-in-out;
+      @include max-1024 {
+        width: 100%;
+        margin-top: 0;
+        padding-top: 0;
+      }
+
+      .classList {
+        display: flex;
+        flex-direction: column;
+        @include max-1024 {
+          flex-direction: row;
+          align-items: center;
+          margin: 0 -10px;
+        }
+
+        .classTrigger {
+          cursor: pointer;
+          width: 180px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          position: relative;
+          padding-left: 88px;
+          color: $gray-919191;
+          font-size: 14px;
+          font-weight: 400;
+          font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+          line-height: 2;
+          letter-spacing: 0.25px;
+          transition: all 0.65s ease-in-out;
+          @include max-1200 {
+            line-height: 1.6;
+          }
+          @include max-1024 {
+            width: auto;
+            padding: 5px 10px;
+          }
+          &:hover {
+            @include min-1201 {
+              color: $gray-3b3b3b;
+              &:before {
+                width: 50px;
+                background-color: $red-a41f24;
+                transform: translateX(0);
+              }
+            }
+          }
+          &:before {
+            content: '';
+            width: 25px;
+            height: 1px;
+            background-color: $gray-d5d5d5;
+            display: block;
+            pointer-events: none;
+            position: absolute;
+            top: 12px;
+            left: 25px;
+            z-index: 1;
+            transform: translateX(25px);
+            transition: all 0.65s ease-in-out;
+            @include max-1024 {
+              display: none;
+              padding-left: 0;
+            }
+          }
+          &:not(:last-child) {
+            margin-bottom: 12px;
+            @include max-1024 {
+              margin-bottom: 0;
+            }
+          }
+          &.current {
+            color: $gray-3b3b3b;
+            &:before {
+              width: 50px;
+              background-color: $red-a41f24;
+              transform: translateX(0);
+            }
+          }
+        }
+      }
+    }
+
+    .countryMapBox {
+      flex: 1;
+      max-width: 500px;
+      margin-left: 92px;
+      margin-top: -44px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.65s ease-in-out;
+      @include max-1440 {
+        margin-top: 0;
+        margin-left: 60px;
+      }
+      @include max-1024 {
+        flex: auto;
+        width: 100%;
+        max-width: 350px;
+        margin: 15px auto;
+      }
+      @include max-640 {
+        max-width: 300px;
+      }
+      .Img {
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: all 1.05s 0.25s ease-in-out;
+        }
+      }
+    }
+
+    .locationList {
+      width: 100%;
+      margin-top: auto;
+      opacity: 0;
+      padding-left: 25px;
+      @include max-1200 {
+        padding-left: 0;
+      }
+
+      .prev,
+      .next {
+        font-size: 0;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: $gray-919191;
+        cursor: pointer;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        transform: translateY(0);
+        margin: 0;
+        z-index: 2;
+        transition: all 0.65s ease-in-out;
+        &:before {
+          content: '';
+          border-right: 2px solid $color-white;
+          border-bottom: 2px solid $color-white;
+          display: block;
+          opacity: 1;
+          pointer-events: none;
+          z-index: 2;
+          width: 8px;
+          height: 8px;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          transition: all 0.65s ease-in-out;
+        }
+        &:hover {
+          @include min-1201 {
+            background-color: $red-a41f24;
+          }
+        }
+      }
+
+      .prev {
+        left: 50px;
+        @include max-1200 {
+          left: 25px;
+        }
+        @include max-1024 {
+          left: 0;
+        }
+        &:before {
+          transform: translateX(1px) rotate(135deg);
+        }
+      }
+      .next {
+        left: 95px;
+        right: auto;
+        @include max-1200 {
+          left: 70px;
+        }
+        @include max-1024 {
+          left: 45px;
+        }
+        &:before {
+          transform: translateX(-1px) rotate(-45deg);
+        }
+      }
+
+      .slick-list {
+        margin-top: 65px;
+        position: relative;
+        padding: 0;
+        overflow: hidden;
+        @include max-640 {
+          margin-top: 55px;
+        }
+      }
+
+      .locationItem {
+        width: 100%;
+        margin-bottom: 18px;
+        padding-left: 25px;
+        padding-right: 15px;
+        position: relative;
+        @include max-1024 {
+          padding-left: 0;
+        }
+
+        .title {
+          margin-bottom: 18px;
+          color: $gray-3b3b3b;
+          font-size: 18px;
+          font-weight: 700;
+          font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+          line-height: 1.2;
+          letter-spacing: 0.4px;
+          @include max-1200 {
+            font-size: 20px;
+          }
+          @include max-640 {
+            font-size: 18px;
+            line-height: 1.3;
+          }
+          a {
+            color: $gray-3b3b3b;
+            &:hover {
+              @include min-1201 {
+                color: $red-a41f24;
+              }
+            }
+          }
+        }
+        .infoList {
+          color: $gray-3b3b3b;
+          font-size: 12px;
+          font-weight: 400;
+          font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+          line-height: 1.8;
+          letter-spacing: 0.25px;
+          @include max-1200 {
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.outerWrap {
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+  @include max-1200 {
+    padding-top: 75px;
+    padding-bottom: calc(55px + env(safe-area-inset-bottom));
+  }
+}
+.outerBox {
+  width: 100%;
+  margin: 0;
+  padding-left: 122px;
+  @include max-1200 {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+.mainArea {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  .bgImg,
+  .decoImg {
+    max-width: 100%;
+    height: auto;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+  }
+}

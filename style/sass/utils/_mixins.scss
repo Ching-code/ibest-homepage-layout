@@ -1,0 +1,70 @@
+// Max Width Breakpoints
+
+@mixin max-1800 {
+  @media (max-width: 1800px) { @content; }
+}
+
+@mixin max-1680 {
+  @media (max-width: 1680px) { @content; }
+}
+
+@mixin max-1560 {
+  @media (max-width: 1560px) { @content; }
+}
+
+@mixin max-1440 {
+  @media (max-width: 1440px) { @content; }
+}
+
+@mixin max-1366 {
+  @media (max-width: 1366px) { @content; }
+}
+
+@mixin max-1280 {
+  @media (max-width: 1280px) { @content; }
+}
+
+@mixin max-1200 {
+  @media (max-width: 1200px) { @content; }
+}
+
+@mixin max-1024 {
+  @media (max-width: 1024px) { @content; }
+}
+
+@mixin max-960 {
+  @media (max-width: 960px) { @content; }
+}
+
+@mixin max-768 {
+  @media (max-width: 768px) { @content; }
+}
+
+@mixin max-640 {
+  @media (max-width: 640px) { @content; }
+}
+
+@mixin max-480 {
+  @media (max-width: 480px) { @content; }
+}
+
+@mixin max-425 {
+  @media (max-width: 425px) { @content; }
+}
+
+@mixin max-400 {
+  @media (max-width: 400px) { @content; }
+}
+
+// Min Width Breakpoints
+@mixin min-769 {
+  @media (min-width: 769px) { @content; }
+}
+
+@mixin min-1201 {
+  @media (min-width: 1201px) { @content; }
+}
+
+@mixin min-1025-to-1200 {
+  @media (min-width: 1025px) and (max-width: 1200px) { @content; }
+}

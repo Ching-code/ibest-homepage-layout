@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@200..900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Libre Baskerville", "Noto Serif TC", Helvetica, Arial, "Microsoft JhengHei", Heiti TC, "メイリオ", sans-serif;
+  background-color: $color-white;
+  color: $gray-3b3b3b;
+  font-size: 14px;
+  &.ovh {
+    overflow: hidden;
+  }
+}
+
+a {
+  color: $color-black;
+  cursor: pointer;
+  transition: all 0.45s ease-in-out;
+  &:hover {
+    @include min-1201 {
+      color: $red-a41f24;
+    }
+  }
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1620px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  &.right {
+    margin: 0 0 0 auto;
+  }
+  &.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,112 @@
+@keyframes bannerImgZoomOut {
+  0% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bannerVerticalText {
+  0% {
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateY(-5px) skewY(-3deg);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0) skewY(0deg);
+  }
+}
+
+@keyframes bannerVerticalImg {
+  0% {
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateY(-57px) skewY(-3deg);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(-52px) skewY(0deg);
+  }
+}
+
+@keyframes slideRightBlurAnimation {
+  0% {
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeftBlurAnimation {
+  0% {
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUpBlurAnimation {
+  0% {
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideDownBlurAnimation {
+  0% {
+    filter: blur(3px);
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shadowMove2 {
+  0% {
+    transform: rotate(0) skew(0deg, 0deg);
+  }
+  33% {
+    transform: rotate(-4deg) skew(1deg, 3deg);
+
+  }
+  66% {
+    transform: rotate(6deg) skew(3deg, 2deg);
+  }
+  100% {
+    transform: rotate(0) skew(0deg, 0deg);
+  }
+}
