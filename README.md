@@ -4,6 +4,10 @@
 
 [春水堂](https://www.ibest.com.tw/work-detail/chunshuitang/)
 
+作品連結:
+
+[github pages](https://ching-code.github.io/ibest-homepage-layout/)
+
 未完成部分:
 
 1. 進入網站中撥放的影片
